@@ -1,8 +1,10 @@
 const http = require("http")
 const express = require("express")
 const { Server } = require("socket.io")
+const connect = require("./db/connect")
 const app = express
 const server = http.createServer(app)
+connect()
 const io = new Server(server, {
     cors: "*"
 })
