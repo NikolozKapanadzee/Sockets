@@ -9,6 +9,7 @@ connect()
 const io = new Server(server, {
     cors: "*"
 })
+//mxolod styles davawerine chats batono davit
 io.on("connection", (socket) => {
     console.log(`${socket.id} connected`);
     socket.on("joinRoom", ({roomId, userEmail}) => {
