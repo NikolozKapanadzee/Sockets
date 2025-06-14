@@ -2,7 +2,7 @@ const { default: mongoose } = require("mongoose");
 
 
 
-const chatSchema = await mongoose.Schema({
+const chatSchema = new mongoose.Schema({
     roomId: {
         type: String, required: true
     },

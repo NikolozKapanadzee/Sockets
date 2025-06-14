@@ -31,7 +31,7 @@ export default function Chat({ roomId, userEmail }: PropType) {
             className={`border-2 rounded-xl p-3 max-w-xs ${
               userEmail === el.userEmail
                 ? "ml-auto bg-blue-100 border-blue-300 text-right"
-                : "mr-auto bg-gray-100 border-gray-300 text-left"
+                : "mr-auto bg-pink-100 border-gray-300 text-left"
             } shadow-sm`}
           >
             <h2 className="text-base font-medium text-blue-600 break-words">

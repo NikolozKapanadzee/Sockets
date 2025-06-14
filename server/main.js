@@ -4,6 +4,7 @@ const { Server } = require("socket.io")
 const connect = require("./db/connect")
 const app = express
 const server = http.createServer(app)
+const chatSchema = require("./schema/chat")
 connect()
 const io = new Server(server, {
     cors: "*"
@@ -14,7 +15,9 @@ io.on("connection", (socket) => {
         socket.join(roomId)
         console.log(`${userEmail} joined ${roomId}}`);
     })
-    socket.on("privateMessage", ({roomId, userEmail, message}) => {
+    socket.on("privateMessage", async ({roomId, userEmail, message}) => {
+        const chat = await chatSchema.create({roomId, userEmail, message})
+        console.log("message saved", chat);
         io.to(roomId).emit("privateMessage", {roomId,userEmail,message})
     })
 })
